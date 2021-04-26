@@ -1,8 +1,8 @@
 Package.describe({
   "summary": "Performance Monitoring for Meteor",
   "version": "2.41.2",
-  "git": "https://github.com/monti-apm/monti-apm-agent.git",
-  "name": "montiapm:agent"
+  "git": "https://github.com/chatr/monti-apm-agent.git",
+  "name": "chatra:montiapm-server-only"
 });
 
 var npmModules = {
@@ -34,12 +34,12 @@ Package.on_test(function(api) {
   api.use([
     'tinytest',
     'test-helpers',
-  ], ['client', 'server']);
+  ], [/*'client', */'server']);
 
   // common before
   api.add_files([
     'tests/models/base_error.js'
-  ], ['client', 'server']);
+  ], [/*'client', */'server']);
 
   // common server
   api.add_files([
@@ -76,22 +76,22 @@ Package.on_test(function(api) {
   ], 'server');
 
   // common client
-  api.add_files([
-    'tests/client/utils.js',
-    'tests/client/error_tracking.js',
-    'tests/client/models/errors.js',
-    'tests/client/error_reporters/window_error.js',
-    'tests/client/error_reporters/unhandled_rejection.js',
-    'tests/client/error_reporters/zone.js',
-    'tests/client/error_reporters/meteor_debug.js',
-    'tests/client/error_reporters/tracker.js', 
-  ], 'client');
+  // api.add_files([
+  //   'tests/client/utils.js',
+  //   'tests/client/error_tracking.js',
+  //   'tests/client/models/errors.js',
+  //   'tests/client/error_reporters/window_error.js',
+  //   'tests/client/error_reporters/unhandled_rejection.js',
+  //   'tests/client/error_reporters/zone.js',
+  //   'tests/client/error_reporters/meteor_debug.js',
+  //   'tests/client/error_reporters/tracker.js',
+  // ], 'client');
 
   // common after
   api.add_files([
     'tests/common/default_error_filters.js',
     'tests/common/send.js'
-  ], ['client', 'server']);
+  ], [/*'client', */'server']);
 });
 
 function configurePackage(api) {
@@ -108,14 +108,14 @@ function configurePackage(api) {
     'underscore', 'http', 'random', 'webapp', 'ecmascript'
   ], ['server']);
   api.use('email@1.0.0||2.0.0')
-  api.use(['random', 'http', 'localstorage', 'ecmascript', 'tracker'], ['client']);
+  // api.use(['random', 'http', 'localstorage', 'ecmascript', 'tracker'], ['client']);
 
   // common before
   api.add_files([
     'lib/common/utils.js',
     'lib/common/unify.js',
     'lib/models/base_error.js'
-  ], ['client', 'server']);
+  ], [/*'client', */'server']);
 
   // only server
   api.add_files([
@@ -154,29 +154,29 @@ function configurePackage(api) {
   ], 'server');
 
   // only client
-  api.add_files([
-    'lib/retry.js',
-    'lib/ntp.js',
-    'lib/client/utils.js',
-    'lib/client/models/errors.js',
-    'lib/client/error_reporters/zone.js',
-    'lib/client/error_reporters/window_error.js',
-    'lib/client/error_reporters/meteor_debug.js',
-    'lib/client/error_reporters/unhandled_rejection.js',
-    'lib/client/error_reporters/tracker.js',
-    'lib/client/kadira.js'
-  ], 'client');
+  // api.add_files([
+  //   'lib/retry.js',
+  //   'lib/ntp.js',
+  //   'lib/client/utils.js',
+  //   'lib/client/models/errors.js',
+  //   'lib/client/error_reporters/zone.js',
+  //   'lib/client/error_reporters/window_error.js',
+  //   'lib/client/error_reporters/meteor_debug.js',
+  //   'lib/client/error_reporters/unhandled_rejection.js',
+  //   'lib/client/error_reporters/tracker.js',
+  //   'lib/client/kadira.js'
+  // ], 'client');
 
-  api.add_files([
-    // It's possible to remove this file after some since this just contains
-    // a notice to the user.
-    // Actual implementation is in the meteorhacks:kadira-profiler package
-    'lib/profiler/client.js',
-  ], 'client');
+  // api.add_files([
+  //   // It's possible to remove this file after some since this just contains
+  //   // a notice to the user.
+  //   // Actual implementation is in the meteorhacks:kadira-profiler package
+  //   'lib/profiler/client.js',
+  // ], 'client');
 
   // common after
   api.add_files([
     'lib/common/default_error_filters.js',
     'lib/common/send.js'
-  ], ['client', 'server']);
+  ], [/*'client', */'server']);
 }
