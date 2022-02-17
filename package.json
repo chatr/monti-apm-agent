@@ -1,0 +1,20 @@
+{
+  "name": "monti-apm-agent",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "test": "meteor test-packages ./",
+    "lint": "eslint ./**/*.js --cache .",
+    "publish": "npm prune --production && meteor publish"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.16.5",
+    "@types/meteor": "^1.4.87",
+    "eslint": "^8.6.0",
+    "eslint-config-es": "^0.8.12",
+    "eslint-plugin-babel": "^5.3.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.16.12"
+  }
+}

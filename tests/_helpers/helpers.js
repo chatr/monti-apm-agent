@@ -125,11 +125,11 @@ CloseClient = function(client) {
   var f = new Future();
   function checkClientExtence(sessionId) {
     let sessionExists;
-    if (Meteor.default_server.sessions instanceof Map) {
+    if (Meteor.server.sessions instanceof Map) {
       // Meteor 1.8.1 and newer
-      sessionExists = Meteor.default_server.sessions.has(sessionId);
+      sessionExists = Meteor.server.sessions.has(sessionId);
     } else {
-      sessionExists = Meteor.default_server.sessions[sessionId];
+      sessionExists = Meteor.server.sessions[sessionId];
     }
 
     if(sessionExists) {
@@ -153,3 +153,7 @@ WithDocCacheGetSize = function(fn, patchedSize){
     Kadira.docSzCache.getSize = original
   }
 }
+
+export const releaseParts = Meteor.release.split('METEOR@')[1].split('.').map(num => {
+  return parseInt(num, 10)
+});

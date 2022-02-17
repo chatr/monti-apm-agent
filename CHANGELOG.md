@@ -1,5 +1,63 @@
 # Changelog
 
+## 2.45.1
+February 13, 2022
+
+* Fix compatibility with Meteor 2.6
+
+## 2.45.0
+December 29, 2021
+
+* Add simplified `Monti.trackError` api: `Monti.trackError(error)`
+* Track `collection.createIndex` in traces
+* Fix some cases where details for unhandled rejections were not collected
+* The dependencies `email` and `http` are now weak
+* Removed dependency on `localstorage`, and replaced deprecated `livedata` and `mongo-livedata` packages with `mongo` and `ddp`
+
+## 2.44.2
+August 30, 2021
+
+* Fix `Kadira._getInfo is not a function` error
+* Update monti-apm-core to fix sending large traces and cpu profiles
+
+## 2.44.1
+July 20, 2021
+
+* Fix memory leak with Node 8 from monitoring garbage collection
+* Fix memory leak when agent is not connected
+* Remove support for beta versions of Meteor 2.3
+
+## 2.44.0
+July 14, 2021
+
+* Add createdFibers, activeFibers, fiberPoolSize, activeRequests, and activeHandles metrics
+* Add garbage collection metrics, enabled when using Node 8.5 or newer
+* Record histogram of event loop delay
+* Add metrics for mongo node driver's connection pool, enabled when using Meteor 2.2 or newer
+* Record system and user cpu usage in cpu history
+
+## 2.43.1
+June 9, 2021
+
+* Store current cpu usage percent for profiler
+
+## 2.43.0
+June 7, 2021
+
+* Fix compatibility with Meteor 2.3
+* Remove HTTP package from client dependencies
+
+## 2.42.0
+May 25, 2021
+
+* Add memoryArrayBuffers, memoryExternal, memoryHeapUsed, and memoryHeapTotal metrics
+* Fix pcpuUser and pcpuSystem metrics
+* Fix error when DocSize is given a map
+* Fix error when MeteorX.Multiplexer is undefined, which fixes using the agent in Rocket Chat
+* Fix how stripSensitiveThorough filter handles waitend event
+* Continuous profiles are only sent if the agent is connected
+* Remove pidusage npm dependency
+
 ## 2.41.2
 March 24, 2021
 
